@@ -26,7 +26,9 @@ a) Jeżeli korzystasz z PhpStorm, możesz użyć opcji "Project from Version Con
 b) Jeżeli korzystasz z terminala, użyj poniższych komend:
 ```bash
 cd /sciezka/do/katalogu/gdzie/chcesz/umiescic/projekt
-git clone https://github.com/mvciejka/wykresix.git
+git clone -b dev https://github.com/mvciejka/wykresix.git
+# upewnij się, że jesteś na branchu dev:
+git branch
 cd wykresix
 ```
 
@@ -90,6 +92,18 @@ docker exec wykresix-php php bin/console doctrine:migrations:migrate --no-intera
 Po skończonej pracy z aplikacją można zatrzymać kontenery poleceniem:
 ```bash
 docker compose down
+```
+
+### Złóż zmiany (najprostsza wersja)
+```bash
+# upewnij się, że jesteś na branchu dev
+git branch
+git add .
+# podejrzyj, czy wszystko, co chciałeś, aby zawierał commit zostało dodane
+git status
+# scommituj i wypchnij zmiany do repo
+git commit -m "Moja zmiana"
+git push origin dev
 ```
 
 ### Praca z bazą danych
